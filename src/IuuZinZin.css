@@ -1,7 +1,9 @@
 .iuu-bg-blur {
   /* Xóa display: flex và align-items: center để Tailwind xử lý */
   min-height: 100vh;
+  max-width: 430px;
   overflow: hidden;
+  background-color: rgb(156,209,241);  
 }
 .iuu-bg-blur::before {
   content: "";
@@ -15,4 +17,6 @@
   position: relative;
   z-index: 1;
 }
-
+.txt-color{
+  color: #2f77b2;
+}
