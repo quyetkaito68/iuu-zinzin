@@ -1,9 +1,12 @@
+.container-all{
+  background-color: rgb(156,209,241);    
+}
 .iuu-bg-blur {
   /* Xóa display: flex và align-items: center để Tailwind xử lý */
-  min-height: 100vh;
+  /* min-height: 100vh; */
   max-width: 430px;
   overflow: hidden;
-  background-color: rgb(156,209,241);  
+  /* background-color: rgb(156,209,241);   */
 }
 .iuu-bg-blur::before {
   content: "";

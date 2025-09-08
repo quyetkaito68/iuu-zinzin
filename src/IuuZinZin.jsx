@@ -7,8 +7,10 @@ import couple0 from './assets/images/zinzin/first-couple-pic.jpg'; // import ả
 import trending from './assets/images/zinzin/trending.jpg'; // import ảnh
 import nan_dat_set_1 from './assets/images/zinzin/nan_dat_set_1.jpg'; // import ảnh
 import nan_dat_set_2 from './assets/images/zinzin/nan_dat_set_2.jpg'; // import ảnh
+import em from './assets/images/zinzin/em.jpg'; // import ảnh
 
 import mylove from './assets/audio/my_love_westlife_2.mp3'; // import audio
+import beautiful from './assets/audio/beautiful.mp3'; // import audio
 import { Volume2, VolumeX } from "lucide-react";
 
 // Pink Heart – beautiful animated heart with glow, particles and soft gradient background.
@@ -43,11 +45,11 @@ export default function PinkHeartAnimation() {
   };
 
   return (
-    <div>
+    <div className="container-all">
       <div
         className="iuu-bg-blur w-full flex flex-col items-center min-h-screen"
       >
-        <div className="max-h-screen w-full bg-pink-50 relative overflow-hidden">
+        <div className="w-full bg-pink-50 relative overflow-hidden">
           {/* Background vignette */}
           <div className="absolute inset-0 -z-10">
             <div className="absolute inset-0" style={{
@@ -163,11 +165,12 @@ export default function PinkHeartAnimation() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4, duration: 0.6 }}
             >
-              <p className="text-pink-600 text-2xl font-medium tracking-wide">Iuu ZinZin❤️</p>
+              <p className="text-pink-600 text-2xl font-medium tracking-wide">Happy Birthday ZinZin❤️</p>
+              <p className="text-pink-600 text-xl font-medium tracking-wide mt-4">Chúc cô gái đáng yêu nhất thế giới<br/> sinh nhật thật vui vẻ và hạnh phúc</p>
             </motion.div>
-            <div className="p-6">
-              <img src={couple1} alt="Capybara" className="w-full h-auto rounded-lg shadow-lg mt-4 mx-auto object-cover" />
-            </div>
+            {/* <div className="p-6">
+              <img src={couple1} alt="image" className="w-full h-auto rounded-lg shadow-lg mt-4 mx-auto object-cover" />
+            </div> */}
           </div>
 
           {/* Keyframe for a soft breathing shadow on the whole scene */}
@@ -179,8 +182,34 @@ export default function PinkHeartAnimation() {
         
         <div className="w-full">
           <div className="w-full p-6">
-            <img src={capybaraBg} alt="Background" className="w-full h-auto rounded-lg shadow-md mb-4" />
-            <h2 className="text-xl font-bold txt-color mb-2">Ảnh 1</h2>
+            <img src={em} alt="Background" className="w-full h-auto rounded-lg shadow-md mb-4" />
+            <motion.div
+              className="mt-2 text-center"
+              initial={{ x: 300, opacity: 0 }}
+              whileInView={{ x: 0, opacity: 1 }}
+              viewport={{ once: true, amount: 0.1 }}
+              transition={{ duration: 1, ease: "easeOut" }}
+            >
+              <p className="text-3xl font-bold tracking-wide txt-color">Nguyễn Quỳnh Duyên</p>
+            </motion.div>
+            <motion.div
+              className="mt-2 text-center"
+              initial={{ x: -300, opacity: 0 }}
+              whileInView={{ x: 0, opacity: 1 }}
+              viewport={{ once: true, amount: 0.1 }}
+              transition={{ duration: 1, ease: "easeOut" }}
+            >
+              <p className="text-xl font-bold tracking-wide txt-color">19/10/2003</p>
+            </motion.div>
+            <motion.div
+              className="mt-2 text-center"
+              initial={{ x: 300, opacity: 0 }}
+              whileInView={{ x: 0, opacity: 1 }}
+              viewport={{ once: true, amount: 0.1 }}
+              transition={{ duration: 1, ease: "easeOut" }}
+            >
+              <p className="text-xl font-bold tracking-wide txt-color">19/10/2025</p>
+            </motion.div>
           </div>
           <div className="w-full p-6">
             <img src={couple0} alt="Background" className="w-full h-auto rounded-lg shadow-md mb-4" />
@@ -238,7 +267,7 @@ export default function PinkHeartAnimation() {
       <div className="flex items-center space-x-3">
           {/* Thẻ audio */}
           <audio ref={audioRef} loop>
-            <source src={mylove} type="audio/mpeg" />
+            <source src={beautiful} type="audio/mpeg" />
           </audio>
 
           {/* Nút icon để bật/tắt */}
