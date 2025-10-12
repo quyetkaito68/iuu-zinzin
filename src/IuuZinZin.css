@@ -4,9 +4,24 @@
 .iuu-bg-blur {
   /* Xóa display: flex và align-items: center để Tailwind xử lý */
   /* min-height: 100vh; */
-  max-width: 430px;
+  max-width: 430px; /*max này set cả cho giao diện web*/
   overflow: hidden;
   /* background-color: rgb(156,209,241);   */
+}
+@media (max-width: 430px){
+  .iuu-bg-blur {
+    max-width: 430px!important;
+  }
+}
+@media (max-width: 393px){
+  .iuu-bg-blur {
+    max-width: 393px!important;
+  }
+}
+@media (max-width: 414px){
+  .iuu-bg-blur {
+    max-width: 414px!important;
+  }
 }
 .iuu-bg-blur::before {
   content: "";
