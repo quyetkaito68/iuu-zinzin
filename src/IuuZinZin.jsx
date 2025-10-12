@@ -1,20 +1,86 @@
 import { useMemo, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import './IuuZinZin.css';
-import capybaraBg from './assets/images/capybara.jpg'; // import ảnh
-import couple1 from './assets/images/zinzin/couple-1.jpg'; // import ảnh
-import couple0 from './assets/images/zinzin/first-couple-pic.jpg'; // import ảnh
-import trending from './assets/images/zinzin/trending.jpg'; // import ảnh
-import nan_dat_set_1 from './assets/images/zinzin/nan_dat_set_1.jpg'; // import ảnh
-import nan_dat_set_2 from './assets/images/zinzin/nan_dat_set_2.jpg'; // import ảnh
-import em from './assets/images/zinzin/em.jpg'; // import ảnh
-
 import mylove from './assets/audio/my_love_westlife_2.mp3'; // import audio
 import beautiful from './assets/audio/beautiful.mp3'; // import audio
-import { Volume2, VolumeX } from "lucide-react";
+import { Volume2, VolumeX, ArrowDown } from "lucide-react";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
-// Pink Heart – beautiful animated heart with glow, particles and soft gradient background.
-// TailwindCSS + Framer Motion. Drop this component anywhere in your app.
+// Import ảnh từ thư mục 100days
+import day100 from './assets/images/100days/100days.jpg';
+
+// Import ảnh từ thư mục 200days
+import day200_1 from './assets/images/200days/200days (1).jpg';
+import day200_2 from './assets/images/200days/200days (2).jpg';
+import day200_3 from './assets/images/200days/200days (3).jpg';
+import day200_4 from './assets/images/200days/200days (4).jpg';
+import day200_6 from './assets/images/200days/200days (6).jpg';
+import day200_7 from './assets/images/200days/200days (7).jpg';
+import day200_8 from './assets/images/200days/200days (8).jpg';
+import day200_9 from './assets/images/200days/200days (9).jpg';
+import day200_10 from './assets/images/200days/200days (10).jpg';
+import day200_11 from './assets/images/200days/200days (11).jpg';
+import day200_12 from './assets/images/200days/200days (12).jpg';
+
+// Import ảnh từ thư mục zinzin
+import zinzinnn_1 from './assets/images/zinzin/zinzinnn (1).jpg';
+import zinzinnn_2 from './assets/images/zinzin/zinzinnn (2).jpg';
+import zinzinnn_3 from './assets/images/zinzin/zinzinnn (3).jpg';
+import zinzinnn_4 from './assets/images/zinzin/zinzinnn (4).jpg';
+import zinzinnn_5 from './assets/images/zinzin/zinzinnn (5).jpg';
+import zinzinnn_6 from './assets/images/zinzin/zinzinnn (6).jpg';
+import zinzinnn_7 from './assets/images/zinzin/zinzinnn (7).jpg';
+import zinzinnn_8 from './assets/images/zinzin/zinzinnn (8).jpg';
+import zinzinnn_9 from './assets/images/zinzin/zinzinnn (9).jpg';
+import zinzinnn_10 from './assets/images/zinzin/zinzinnn (10).jpg';
+import zinzinnn_11 from './assets/images/zinzin/zinzinnn (11).jpg';
+import zinzinnn_12 from './assets/images/zinzin/zinzinnn (12).jpg';
+import zinzinnn_13 from './assets/images/zinzin/zinzinnn (13).jpg';
+import zinzinnn_14 from './assets/images/zinzin/zinzinnn (14).jpg';
+import zinzinnn_15 from './assets/images/zinzin/zinzinnn (15).jpg';
+import zinzinnn_16 from './assets/images/zinzin/zinzinnn (16).jpg';
+
+const images = [
+];
+
+const days100Images = [
+  day100
+];
+
+const days200Images = [
+  day200_1,
+  day200_2,
+  // day200_3,
+  day200_4,
+  // day200_6,
+  day200_7,
+  // day200_8,
+  day200_9,
+  day200_10,
+  day200_11,
+  day200_12
+];
+
+const zinzinImages = [
+  zinzinnn_1,
+  zinzinnn_2,
+  zinzinnn_3,
+  zinzinnn_4,
+  zinzinnn_5,
+  zinzinnn_6,
+  zinzinnn_7,
+  zinzinnn_8,
+  zinzinnn_9,
+  zinzinnn_10,
+  zinzinnn_11,
+  zinzinnn_12,
+  zinzinnn_13,
+  zinzinnn_14,
+  zinzinnn_15,
+  zinzinnn_16
+];
 
 export default function PinkHeartAnimation() {
   // Precompute some floating particles for subtle sparkle
@@ -34,6 +100,8 @@ export default function PinkHeartAnimation() {
   // xử lý âm nhạc
   const audioRef = useRef(null); // tham chiếu đến thẻ <audio>
   const [playing, setPlaying] = useState(false);
+  const nextSectionRef = useRef(null);
+  const [previewImg, setPreviewImg] = useState(null);
 
   const togglePlay = () => {
     if (playing) {
@@ -46,6 +114,12 @@ export default function PinkHeartAnimation() {
 
   return (
     <div className="container-all">
+      {/* Overlay preview ảnh */}
+      {previewImg && (
+        <div className="fixed inset-0 z-[99999] flex items-center justify-center bg-black/80" onClick={() => setPreviewImg(null)}>
+          <img src={previewImg} alt="Preview" className="max-w-full max-h-full rounded-lg shadow-2xl border-4 border-white" />
+        </div>
+      )}
       <div
         className="iuu-bg-blur w-full flex flex-col items-center min-h-screen"
       >
@@ -81,7 +155,7 @@ export default function PinkHeartAnimation() {
             />
           ))}
 
-          <div className="relative flex flex-col items-center justify-center pt-20 pb-12">
+          <div className="heart-containter relative flex flex-col items-center justify-center pt-20 pb-12">
             {/* Soft halo behind the heart */}
             <motion.div
               className="absolute inset-0 -z-10"
@@ -160,17 +234,18 @@ export default function PinkHeartAnimation() {
 
             {/* Cute caption */}
             <motion.div
-              className="mt-2 text-center"
+              className="mt-8 text-center"
               initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4, duration: 0.6 }}
             >
-              <p className="text-pink-600 text-2xl font-medium tracking-wide">Happy Birthday ZinZin❤️</p>
-              <p className="text-pink-600 text-xl font-medium tracking-wide mt-4">Chúc cô gái đáng yêu nhất thế giới<br/> sinh nhật thật vui vẻ và hạnh phúc</p>
+              <p className="text-pink-600 text-2xl font-medium tracking-wide">Gửi tới ZinZin iu dấu❤️</p>
+              <p className="text-pink-600 text-xl font-medium tracking-wide mt-4 p-2">Trái tim nhỏ này dành tặng cho em - người iu siêu cấp chuchee của anh</p>
+              <div className="flex flex-col items-center justify-end w-full mt-32 mb-2">
+                <p className="text-pink-600 text-l font-medium tracking-wide">Anh có để thêm sự đáng yêu ở phía dưới<br/> em lướt xuống để xem tiếp nha</p>
+                <ArrowDown className="text-pink-500 w-8 h-8 mt-2 animate-bounce cursor-pointer" onClick={() => nextSectionRef.current?.scrollIntoView({ behavior: 'smooth' })} />
+              </div>
             </motion.div>
-            {/* <div className="p-6">
-              <img src={couple1} alt="image" className="w-full h-auto rounded-lg shadow-lg mt-4 mx-auto object-cover" />
-            </div> */}
           </div>
 
           {/* Keyframe for a soft breathing shadow on the whole scene */}
@@ -179,10 +254,9 @@ export default function PinkHeartAnimation() {
             .ambient { animation: ambientPulse 3s ease-in-out infinite; }
           `}</style> */}
         </div>
-        
-        <div className="w-full">
-          <div className="w-full p-6">
-            <img src={em} alt="Background" className="w-full h-auto rounded-lg shadow-md mb-4" />
+        <div ref={nextSectionRef} className="w-full">
+          <div className="w-full p-6 max-h-screen">
+            <img src={zinzinnn_4} alt="Background" className="w-full h-96 object-cover rounded-lg shadow-md mb-4" />
             <motion.div
               className="mt-2 text-center"
               initial={{ x: 300, opacity: 0 }}
@@ -191,6 +265,7 @@ export default function PinkHeartAnimation() {
               transition={{ duration: 1, ease: "easeOut" }}
             >
               <p className="text-3xl font-bold tracking-wide txt-color">Nguyễn Quỳnh Duyên</p>
+              <p className="text-3xl font-bold tracking-wide txt-color">ZinZin</p>                       
             </motion.div>
             <motion.div
               className="mt-2 text-center"
@@ -210,35 +285,76 @@ export default function PinkHeartAnimation() {
             >
               <p className="text-xl font-bold tracking-wide txt-color">19/10/2025</p>
             </motion.div>
+            <div className="mt-4 text-left">
+              <p className="text-base txt-color leading-relaxed font-medium mb-1">
+                Gửi Zin iu của anh.<br/>
+                Anh mong em sẽ có một ngày tuyệt vời với nụ cười trên môi, anh mong dù hiện tại hay mai sau những điều đến với em sẽ đều thật tốt đẹp, dịu dàng, ngọt ngào và đáng yêu như em vậy.<br/>
+                Thêm tuổi mới, Zinnn cũng trưởng thành hơn gòi, nhưng em vẫn mãi là em bé iu của anhhh.<br/>
+                Cảm ơn em vì đã xuất hiện và dành tình yêu thương cho anh.<br/>
+                Happy birthday to Zinzin.<br/>
+              </p>
+              <p className="text-base txt-color font-semibold text-right mt-2">Iu emmm</p>
+              <p className="text-base txt-color font-semibold text-right mt-2">From Quýttt</p>
+            </div>
           </div>
-          <div className="w-full p-6">
-            <img src={couple0} alt="Background" className="w-full h-auto rounded-lg shadow-md mb-4" />
-            <h2 className="text-xl font-italic txt-color mb-2">Bức ảnh đầu tiên chụp cùng nhau</h2>
-          </div>
-          <div className="w-full p-6">
-            <img src={trending} alt="Background" className="w-full h-auto rounded-lg shadow-md mb-4" />
-            <h2 className="text-xl font-italic txt-color mb-2">Cùng nhau làm những "trò mèo"</h2>
+          <div className="w-full p-6 max-h-screen">
+            <img src={zinzinnn_6} alt="Background" className="w-full h-96 object-cover object-[center_30%] rounded-lg shadow-md mb-4 cursor-pointer" onClick={() => setPreviewImg(zinzinnn_6)} />
+            <h2 className="text-l font-italic txt-color mb-2">Đây là bức ảnh đầu tiên em gửi cho anh nèee</h2>
+            <img src={zinzinnn_16} alt="Background" className="w-full h-96 object-cover object-[center_60%] rounded-lg shadow-md mb-4 cursor-pointer" onClick={() => setPreviewImg(zinzinnn_16)}/>
+            <h2 className="text-l font-italic txt-color mb-2">Cùng nhau làm những "trò mèo"</h2>
           </div>        
-          <div className="relative w-full p-6">
+          <div className="flex w-full gap-4 p-6">
             <img
-              src={nan_dat_set_1}
+              src={zinzinnn_13}
               alt="Image 1"
-              className="w-4/5 h-full object-cover rounded-lg shadow-lg"
+              className="w-1/2 h-72 object-cover rounded-lg shadow-lg cursor-pointer"
+              onClick={() => setPreviewImg(zinzinnn_13)}
             />
             <img
-              src={nan_dat_set_2}
+              src={zinzinnn_15}
               alt="Image 2"
-              className="absolute top-[-20px] right-[40px] w-[40%] h-auto object-cover rounded-lg shadow-xl
-                        transform translate-x-4 translate-y-4"
+              className="w-1/2 h-72 object-cover rounded-lg shadow-lg cursor-pointer"
+              onClick={() => setPreviewImg(zinzinnn_15)}
             />
-            <h2 className="text-xl font-italic txt-color mt-1">Nặn đất sét nèe</h2>
           </div>
+          <h2 className="text-l font-italic txt-color mt-1">Zinnn bật mode học tập</h2>
           
-          <section className="w-full p-6 bg-pink-200">Phần 2</section>
-          <section className="w-full p-6 bg-pink-300">Phần 3</section>
-          <section className="w-full p-6 bg-pink-300">Phần 4</section>
-          <section className="w-full p-6 bg-pink-300">Phần 5</section>
-          <section className="w-full p-6 bg-pink-300">Phần 6</section>
+          <section className="w-full p-6">Phần 2</section>
+          <div className="w-full p-6">
+            <Slider
+              dots={true}
+              infinite={true}
+              speed={500}
+              slidesToShow={1}
+              slidesToScroll={1}
+            >
+              {days100Images.map((img, idx) => (
+                <div key={idx}>
+                  <img src={img} alt={`Slide ${idx + 1}`} className="w-full h-80 object-cover rounded-lg shadow-md" />
+                </div>
+              ))}
+            </Slider>
+            <h2 className="mt-8 text-xl font-italic txt-color mb-2">100 days</h2>
+          </div>
+          <div className="w-full p-6">
+            <Slider
+              dots={true}
+              infinite={true}
+              speed={500}
+              slidesToShow={1}
+              slidesToScroll={1}
+            >
+              {days200Images.map((img, idx) => (
+                <div key={idx}>
+                  <img src={img} alt={`Slide ${idx + 1}`} className="w-full aspect-square object-cover rounded-lg shadow-md" />
+                </div>
+              ))}
+            </Slider>
+            <h2 className="mt-8 text-xl font-italic txt-color mb-2">200 days</h2>
+          </div>
+          <section className="w-full p-6">Phần 4</section>
+          <section className="w-full p-6">Phần 5</section>
+          <section className="w-full p-6">Phần 6</section>
           {/* những hạt sáng nhỏ (particles) bay lơ lửng */}
           {particles.map((p) => (
             <motion.span
