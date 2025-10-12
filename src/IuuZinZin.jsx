@@ -255,7 +255,7 @@ export default function PinkHeartAnimation() {
           `}</style> */}
         </div>
         <div ref={nextSectionRef} className="w-full">
-          <div className="w-full p-6 max-h-screen">
+          <div className="w-full p-6">
             <img src={zinzinnn_4} alt="Background" className="w-full h-96 object-cover rounded-lg shadow-md mb-4" />
             <motion.div
               className="mt-2 text-center"
@@ -297,7 +297,7 @@ export default function PinkHeartAnimation() {
               <p className="text-base txt-color font-semibold text-right mt-2">From Quýttt</p>
             </div>
           </div>
-          <div className="w-full p-6 max-h-screen">
+          <div className="w-full p-6">
             <img src={zinzinnn_6} alt="Background" className="w-full h-96 object-cover object-[center_30%] rounded-lg shadow-md mb-4 cursor-pointer" onClick={() => setPreviewImg(zinzinnn_6)} />
             <h2 className="text-l font-italic txt-color mb-2">Đây là bức ảnh đầu tiên em gửi cho anh nèee</h2>
             <img src={zinzinnn_16} alt="Background" className="w-full h-96 object-cover object-[center_60%] rounded-lg shadow-md mb-4 cursor-pointer" onClick={() => setPreviewImg(zinzinnn_16)}/>
