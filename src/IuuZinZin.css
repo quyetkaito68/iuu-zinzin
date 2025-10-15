@@ -13,14 +13,14 @@
     max-width: 430px!important;
   }
 }
-@media (max-width: 393px){
-  .iuu-bg-blur {
-    max-width: 393px!important;
-  }
-}
 @media (max-width: 414px){
   .iuu-bg-blur {
     max-width: 414px!important;
+  }
+}
+@media (max-width: 393px){
+  .iuu-bg-blur {
+    max-width: 393px!important;
   }
 }
 .iuu-bg-blur::before {
