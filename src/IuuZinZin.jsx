@@ -581,7 +581,6 @@ export default function PinkHeartAnimation() {
                   height="150"
                   viewBox="0 0 512 472"
                   xmlns="http://www.w3.org/2000/svg"
-                  className="drop-shadow-[0_0_30px_rgba(236,72,153,0.9)]"
                   initial={{ scale: 0.9 }}
                   animate={{ scale: [0.9, 1.06, 0.9] }}
                   transition={{ repeat: Infinity, duration: 1.4, ease: "easeInOut" }}
@@ -617,9 +616,9 @@ export default function PinkHeartAnimation() {
                     <path
                       d="M256 80 C210 30 130 22 85 68 C40 113 40 190 90 240"
                       stroke="url(#shine)"
-                      strokeWidth="28"
+                      strokeWidth="15"
                       fill="none"
-                      opacity="0.5"
+                      opacity="0.3"
                     />
                   </g>
 
