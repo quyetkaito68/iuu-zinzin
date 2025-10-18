@@ -47,6 +47,7 @@ import cute5 from './assets/images/zinzin/cute5.jpg';
 import cute6 from './assets/images/zinzin/cute6.jpg';
 import cute7 from './assets/images/zinzin/cute7.jpg';
 import cute8 from './assets/images/zinzin/cute8.jpg';
+import cake from './assets/images/zinzin/cake.jpg';
 
 // Import ảnh từ thư mục icon-bg
 import audioIcon from './assets/images/icon-bg/audio.png';
@@ -569,7 +570,9 @@ export default function PinkHeartAnimation() {
           <section className="w-full p-6 relative">
             <img src={heart} alt="heart-bg" className="absolute left-8 top-[-10px] w-10 opacity-70 pointer-events-none select-none" style={{filter: 'brightness(1.2) sepia(1) saturate(8) hue-rotate(-80deg) drop-shadow(0 0 8px #fff8)'}} />
             <img src={heart} alt="heart-bg" className="absolute right-8 top-[-10px] w-10 opacity-70 pointer-events-none select-none" style={{filter: 'brightness(1.2) sepia(1) saturate(8) hue-rotate(-80deg) drop-shadow(0 0 8px #fff8)'}} />
-            <h2 className="indent-2 text-l font-italic txt-color mt-2">Quàoooo</h2>
+            <img src={cake} alt="Background" className="object-cover rounded-sm shadow-md mt-4 cursor-pointer" onClick={() => setPreviewImg(cake)} />            
+            <h2 className="indent-2 text-l font-italic txt-color mt-2">Bánh kemmm</h2>
+            <h2 className="indent-2 text-l font-italic txt-color mt-8">Quàoooo</h2>
             <h2 className="indent-2 text-l font-italic txt-color mt-16">Chuche đúng hơmmm</h2>
             <h2 className="indent-2 text-l font-italic txt-color mt-2">Chúc cho Zinzin lúc nào cũng chuchee, vui vẻ và nhiều năng lượng nhé</h2>
             <h2 className="indent-2 text-l font-italic txt-color mt-2">Anh iu em nhiều nhắmmm</h2>
